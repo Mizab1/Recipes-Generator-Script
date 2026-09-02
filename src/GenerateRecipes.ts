@@ -28,12 +28,12 @@ function formatTime(totalSeconds: number): string {
 }
 
 // Helper function to calculate combinations with replacement
-function getCombinations<T>(arr: readonly T[], length: number): T[][] {
+function getCombinations(arr: readonly String[], length: number): Array<Array<String>> {
   if (length === 1) return arr.map((item) => [item]);
-  const combinations: T[][] = [];
+  const combinations: Array<Array<String>> = [];
 
   arr.forEach((item, index) => {
-    const smallerCombinations = getCombinations(arr.slice(index), length - 1);
+    const smallerCombinations: Array<Array<String>> = getCombinations(arr.slice(index), length - 1);
     smallerCombinations.forEach((combo) => {
       combinations.push([item, ...combo]);
     });
